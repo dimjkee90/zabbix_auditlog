@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-username = os.getenv('USER')
-password = os.getenv('PASSWORD')
+username = os.getenv('ZBUSER')
+password = os.getenv('ZBPASSWORD')
 url = os.getenv('URL')
 token = os.getenv('TOKEN')
 chat_id = os.getenv('CHAT_ID')
