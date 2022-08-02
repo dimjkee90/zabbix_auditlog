@@ -4,5 +4,6 @@ You need to copy example.env to .env and provide your details
 
 install
 ```
+cp example.env .env
 pip install -r requirements.txt
 ```
