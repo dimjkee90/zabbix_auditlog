@@ -26,7 +26,7 @@ zapi.login(username, password)
 auditlog = zapi.auditlog.get(output="extend",
                              sortfield="clock",
                              sortorder="DESC",
-                             limit=5,
+                             #limit=5,
                              time_from=f"{time_from}",
                              time_till=f"{time_till}",
                              #filter={"userid": 27}
