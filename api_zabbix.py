@@ -46,7 +46,7 @@ def getLog():
     for logs in auditlog:
         """Convert timestamp to datetime"""
         timestamp = logs.get('clock')
-        logs['clock'] = datetime.fromtimestamp(int(timestamp)).strftime("%d/%m/%Y, %H:%M:%S")
+        logs['clock'] = datetime.fromtimestamp(int(timestamp)).strftime("%Y/%m/%d, %H:%M:%S")
 
         """get action number"""
         num = int(logs['action'])
@@ -74,13 +74,18 @@ def getLog():
 logprepare = (str(getLog()))
 
 """save file"""
-with open('logs.txt', 'w') as file:
+
+current_datetime = format(datetime.now().strftime('%Y%m%d'))
+extension = '.txt'
+file_name = 'auditlog_' + current_datetime + extension
+
+with open(file_name, 'w') as file:
     file.write(logprepare)
 
 """send file to telegram"""
 bot = telebot.TeleBot(token)
-with open('logs.txt', 'r') as sendFile:
+with open(file_name, 'r') as sendFile:
     bot.send_document(chat_id, sendFile)
 
 """remove file"""
-os.remove('logs.txt')
+os.remove(file_name)
