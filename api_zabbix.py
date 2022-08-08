@@ -29,7 +29,7 @@ auditlog = zapi.auditlog.get(output="extend",
                              #limit=5,
                              time_from=f"{time_from}",
                              time_till=f"{time_till}",
-                             #filter={"userid": 27}
+                             #filter={"action": [0, 1, 2]} 
                              )
 
 
